@@ -1,0 +1,28 @@
+{
+	"name": "social-network-api",
+	"version": "1.0.0",
+	"description": "A social network API using MongoDB",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index",
+		"dev": "nodemon index",
+		"seed": "node utils/seed"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/awidener3/social-network-api.git"
+	},
+	"author": "Alex Widener",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/awidener3/social-network-api/issues"
+	},
+	"homepage": "https://github.com/awidener3/social-network-api#readme",
+	"dependencies": {
+		"express": "^4.17.3",
+		"mongoose": "^6.2.3"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	}
+}
