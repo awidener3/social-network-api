@@ -1,21 +1,18 @@
-
 # GET all users
 GET http://localhost:3001/api/users 
 
 ###
-
 # GET one user by ID
 GET http://localhost:3001/api/users/6217f3cf32353d9f0f1aaf66
 
 ###
-
 # CREATE a user
 POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "rickybobby",
-    "email": "richardbob@yahoo.com"
+    "username": "jimbofish",
+    "email": "fischer@fsu.edu"
 }
 
 ###
@@ -28,11 +25,13 @@ Content-Type: application/json
 }
 
 ###
-
 # DELETE a user
 DELETE http://localhost:3001/api/users/6217fb2062048b9503dfa7e8
 
 ###
-
 # ADD a friend
-POST http://localhost:3001/api/users/:userId/friends/:friendId
+POST http://localhost:3001/api/users/6217fde0867c6caefd9a141b/friends/6217f3cf32353d9f0f1aaf66
+
+###
+# DELETE a friend
+DELETE http://localhost:3001/api/users/6217fde0867c6caefd9a141b/friends/6217f3cf32353d9f0f1aaf66

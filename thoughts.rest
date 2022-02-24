@@ -1,0 +1,39 @@
+# GET all thoughts
+GET http://localhost:3001/api/thoughts 
+
+###
+# GET one thought by ID
+GET http://localhost:3001/api/thoughts/:id
+
+###
+# CREATE a thought
+POST http://localhost:3001/api/thoughts
+Content-Type: application/json
+
+{
+  "thoughtText": "Here's a cool thought...",
+  "username": "awidener3"
+}
+
+###
+# UPDATE a thought
+PUT http://localhost:3001/api/thoughts/:id
+Content-Type: application/json
+
+{
+  "thoughtText": "Here's a cool thought...",
+  "username": "awidener3",
+  "userId": "6217f3cf32353d9f0f1aaf66"
+}
+
+###
+# DELETE a thought
+DELETE http://localhost:3001/api/thoughts/:id
+
+###
+# ADD a reaction
+POST http://localhost:3001/api//api/thoughts/:thoughtId/reactions
+
+###
+# DELETE a reaction
+DELETE http://localhost:3001//api/thoughts/:thoughtId/reactions
