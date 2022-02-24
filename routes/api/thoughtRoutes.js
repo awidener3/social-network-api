@@ -3,15 +3,20 @@ const {
 	getThoughts,
 	getSingleThought,
 	createThought,
+	updateThought,
+	deleteThought,
 } = require('../../controllers/thoughtController');
 
 // /api/thoughts
-// TODO:
 router.route('/').get(getThoughts).post(createThought);
 
 // /api/thoughts/:thoughtId
 // TODO:
-router.route('/:thoughtId').get(getSingleThought).put().delete();
+router
+	.route('/:thoughtId')
+	.get(getSingleThought)
+	.put(updateThought)
+	.delete(deleteThought);
 
 // /api/thoughts/:thoughtId/reactions
 // TODO:
