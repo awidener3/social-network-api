@@ -1,0 +1,33 @@
+
+# GET all users
+GET http://localhost:3001/api/users 
+
+###
+
+# GET one user by ID
+GET http://localhost:3001/api/users/6217f3cf32353d9f0f1aaf66
+
+###
+
+# CREATE a user
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "rickybobby",
+    "email": "richardbob@yahoo.com"
+}
+
+###
+# UPDATE a user
+PUT http://localhost:3001/api/users/6217f42a32353d9f0f1aaf6b
+Content-Type: application/json
+
+{
+    "email": "richardbobothy@yahoo.com"
+}
+
+###
+
+# DELETE a user
+DELETE http://localhost:3001/api/users/6217fb2062048b9503dfa7e8
