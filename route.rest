@@ -31,3 +31,8 @@ Content-Type: application/json
 
 # DELETE a user
 DELETE http://localhost:3001/api/users/6217fb2062048b9503dfa7e8
+
+###
+
+# ADD a friend
+POST http://localhost:3001/api/users/:userId/friends/:friendId
