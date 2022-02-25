@@ -8,9 +8,7 @@ module.exports = {
 			.then(async (users) => {
 				return res.status(200).json(users);
 			})
-			.catch((err) => {
-				return res.status(500).json({ message: err.message });
-			});
+			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	// GET user by id + thought and friend data
 	getSingleUser(req, res) {
@@ -21,9 +19,7 @@ module.exports = {
 					? res.status(404).json({ message: 'No user with that ID' })
 					: res.json(user)
 			)
-			.catch((err) => {
-				return res.status(500).json({ message: err.message });
-			});
+			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	// POST new user
 	createUser(req, res) {
@@ -44,12 +40,9 @@ module.exports = {
 					? res.status(404).json({ message: 'No user with that ID' })
 					: res.json(user)
 			)
-			.catch((err) => {
-				return res.status(500).json({ message: err.message });
-			});
+			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	// DELETE user by id
-	// remove users thoughts when deleted
 	deleteUser(req, res) {
 		User.findOneAndRemove({ _id: req.params.userId })
 			.then((user) =>
@@ -60,11 +53,15 @@ module.exports = {
 			.then((thought) =>
 				!thought
 					? res.status(404).json({
-							message: 'User deleted, but no thoughts were found',
+							message: 'user deleted, no thoughts found',
 					  })
-					: res.json({ message: 'User successfully deleted' })
+					: res.status(200).json('User deleted')
 			)
-			.catch((err) => res.status(500).json({ message: err.message }));
+			.catch((err) => {
+				console.log(err);
+				res.status(500).json(err);
+				return;
+			});
 	},
 	// POST to add a new friend to friend list
 	addFriend(req, res) {

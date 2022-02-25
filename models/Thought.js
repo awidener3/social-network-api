@@ -9,7 +9,11 @@ const thoughtSchema = new Schema(
 			minlength: 1,
 			maxlength: 280,
 		},
-		createdAt: { type: Date, default: Date.now },
+		createdAt: {
+			type: Date,
+			default: Date.now,
+			get: (value) => value.toDateString(),
+		},
 		username: { type: String, required: true },
 		reactions: [reactionSchema],
 	},

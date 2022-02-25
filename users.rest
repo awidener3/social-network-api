@@ -3,7 +3,7 @@ GET http://localhost:3001/api/users
 
 ###
 # GET one user by ID
-GET http://localhost:3001/api/users/6217f3cf32353d9f0f1aaf66
+GET http://localhost:3001/api/users/621826b5646ea1e5f781e798
 
 ###
 # CREATE a user
@@ -11,27 +11,27 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "jimbofish",
-    "email": "fischer@fsu.edu"
+    "username": "swidener",
+    "email": "swidener@ti.com"
 }
 
 ###
 # UPDATE a user
-PUT http://localhost:3001/api/users/6217f42a32353d9f0f1aaf6b
+PUT http://localhost:3001/api/users/621826b5646ea1e5f781e798
 Content-Type: application/json
 
 {
-    "email": "richardbobothy@yahoo.com"
+    "email": "jimbofisher@gmail.com"
 }
 
 ###
 # DELETE a user
-DELETE http://localhost:3001/api/users/6217fb2062048b9503dfa7e8
+DELETE http://localhost:3001/api/users/621826b5646ea1e5f781e798
 
 ###
 # ADD a friend
-POST http://localhost:3001/api/users/6217fde0867c6caefd9a141b/friends/6217f3cf32353d9f0f1aaf66
+POST http://localhost:3001/api/users/621826c0646ea1e5f781e79a/friends/62182701646ea1e5f781e7a2
 
 ###
 # DELETE a friend
-DELETE http://localhost:3001/api/users/6217fde0867c6caefd9a141b/friends/6217f3cf32353d9f0f1aaf66
+DELETE http://localhost:3001/api/users/621826c0646ea1e5f781e79a/friends/62182701646ea1e5f781e7a2
