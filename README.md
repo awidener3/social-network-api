@@ -1,6 +1,6 @@
 # 📝 Homework #10: Social Media API
 
-📌 [Walkthrough Video](https://drive.google.com/file/d/1HfA6cEDa6s3753gzSpMuc4kPhoKwi-hL/view?usp=sharing)
+📌 [Walkthrough Video](./images/social-media-api-preview.mp4)
 
 ## 🔨 Task
 Using MongoDB and Mongoose, create an API for a social media platform where clients can create a user, create thoughts, react to thoughts, and add friends. Each of these methods should also have CRUD methods applied to them.
