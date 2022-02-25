@@ -1,33 +1,31 @@
 const { User, Thought } = require('../models');
 
-// Aggregates go here
 module.exports = {
-	// GET all users
 	getUsers(req, res) {
 		User.find()
-			.then(async (users) => {
-				return res.status(200).json(users);
-			})
+			.select('-__v')
+			.then((users) => res.status(200).json(users))
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
-	// GET user by id + thought and friend data
 	getSingleUser(req, res) {
 		User.findOne({ _id: req.params.userId })
 			.select('-__v')
+			.populate('thoughts')
+			.populate('friends')
 			.then(async (user) =>
 				!user
-					? res.status(404).json({ message: 'No user with that ID' })
+					? res
+							.status(404)
+							.json({ message: 'No user found with that id' })
 					: res.json(user)
 			)
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
-	// POST new user
 	createUser(req, res) {
 		User.create(req.body)
 			.then((user) => res.status(201).json(user))
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
-	// PUT to update user by id
 	updateUser(req, res) {
 		User.findOneAndUpdate(
 			{ _id: req.params.userId },
@@ -37,23 +35,27 @@ module.exports = {
 			.select('-__v')
 			.then(async (user) =>
 				!user
-					? res.status(404).json({ message: 'No user with that ID' })
+					? res
+							.status(404)
+							.json({ message: 'No user found with that id' })
 					: res.json(user)
 			)
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
-	// DELETE user by id
 	deleteUser(req, res) {
 		User.findOneAndRemove({ _id: req.params.userId })
 			.then((user) =>
 				!user
-					? res.status(404).json({ message: 'No user with that id' })
+					? res
+							.status(404)
+							.json({ message: 'No user found with that id' })
 					: Thought.deleteMany({ username: user.username })
 			)
 			.then((thought) =>
 				!thought
 					? res.status(404).json({
-							message: 'user deleted, no thoughts found',
+							message:
+								'user deleted, but no thoughts by that user were found',
 					  })
 					: res.status(200).json('User deleted')
 			)
@@ -63,7 +65,6 @@ module.exports = {
 				return;
 			});
 	},
-	// POST to add a new friend to friend list
 	addFriend(req, res) {
 		User.findOneAndUpdate(
 			{ _id: req.params.userId },
@@ -79,7 +80,6 @@ module.exports = {
 			)
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
-	// DELETE to remove a friend from a user's friend list
 	deleteFriend(req, res) {
 		User.findOneAndUpdate(
 			{ _id: req.params.userId },

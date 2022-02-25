@@ -13,7 +13,7 @@ module.exports = {
 				!thought
 					? res
 							.status(404)
-							.json({ message: 'No thought with this id' })
+							.json({ message: 'No thought with that id' })
 					: res.status(200).json(thought)
 			)
 			.catch((err) => res.status(500).json({ message: err.message }));
@@ -42,33 +42,28 @@ module.exports = {
 				!thought
 					? res
 							.status(404)
-							.json({ message: 'No thought with this id' })
+							.json({ message: 'No thought with that id' })
 					: res.status(200).json(thought)
 			)
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	deleteThought(req, res) {
 		Thought.findOneAndDelete({ _id: req.params.thoughtId })
-			.then((thought) =>
-				!thought
-					? res
-							.status(404)
-							.json({ message: 'No thought with this id' })
-					: User.findOneAndUpdate(
-							{ username: thought.username },
-							{ $pull: { thoughts: thought._id } },
-							{ new: true }
-					  )
-			)
-			.then((user) => {
-				!user
-					? res.status(404).json('thought deleted, user not found')
-					: res.status(200).json(user);
+			.then((thought) => {
+				if (!thought) {
+					res.status(404).json({
+						message: 'No thought found with that id',
+					});
+				} else {
+					User.findOneAndUpdate(
+						{ username: thought.username },
+						{ $pull: { thoughts: thought._id } },
+						{ new: true }
+					);
+					res.status(200).json('deleted thought');
+				}
 			})
-			.catch((err) => {
-				console.log(err);
-				res.status(500).json(err);
-			});
+			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	postReaction(req, res) {
 		Thought.findOneAndUpdate(
@@ -90,6 +85,12 @@ module.exports = {
 			{ _id: req.params.thoughtId },
 			{ $pull: { reactions: { _id: req.params.reactionId } } },
 			{ new: true }
-		);
+		)
+			.then((thought) =>
+				!thought
+					? res.status(404).json('No reaction found with that id')
+					: res.status(200).json(thought)
+			)
+			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 };

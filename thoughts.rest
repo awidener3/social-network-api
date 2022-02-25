@@ -1,9 +1,9 @@
 # GET all thoughts
-GET http://localhost:3001/api/thoughts 
+GET http://localhost:3001/api/thoughts
 
 ###
 # GET one thought by ID
-GET http://localhost:3001/api/thoughts/6218273d646ea1e5f781e7ab
+GET http://localhost:3001/api/thoughts/6218273d3646ea1e5f781eab
 
 ###
 # CREATE a thought
@@ -17,28 +17,28 @@ Content-Type: application/json
 
 ###
 # UPDATE a thought
-PUT http://localhost:3001/api/thoughts/6218273d646ea1e5f781e7ab
+PUT http://localhost:3001/api/thoughts/621828393d52f6e18c095c8f
 Content-Type: application/json
 
 {
-  "thoughtText": "Here's another cool thought...",
-  "username": "awidener3"
+  "thoughtText": "Here's another cool thought that I thought...",
+  "username": "swidener"
 }
 
 ###
 # DELETE a thought
-DELETE http://localhost:3001/api/thoughts/6218200eb82c990775b7f4b9
+DELETE http://localhost:3001/api/thoughts/6218db60a3993a253258ecbe
 
 ###
 # ADD a reaction
-POST http://localhost:3001/api/thoughts/6218273d646ea1e5f781e7ab/reactions
+POST http://localhost:3001/api/thoughts/6218db60a3993a253258ecbe/reactions
 Content-Type: application/json
 
 {
-  "reactionBody": "Whoa, what a cool thought!",
+  "reactionBody": "Nice thought, Steve!",
   "username": "awidener3"
 }
 
 ###
 # DELETE a reaction
-DELETE http://localhost:3001//api/thoughts/6218273d646ea1e5f781e7ab/reactions/621828048743de1389f86942
+DELETE http://localhost:3001/api/thoughts/6218db60a3993a253258ecbe/reactions/6218db72a3993a253258ecc3
