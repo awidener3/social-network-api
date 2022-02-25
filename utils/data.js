@@ -50,18 +50,6 @@ const reactions = [
 	'How dare you!',
 ];
 
-const randomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
-const getRandomUsername = () => randomItem(usernames);
-
-const getRandomFriends = () => {
-	const results = [];
-	for (let i = 0; i < usernames.length; i++) {
-		results.push(usernames[i]);
-	}
-	return results;
-};
-
 const getRandomThought = () => {
 	const result = {
 		thoughtText: randomItem(thoughts),
@@ -74,4 +62,4 @@ const getRandomThought = () => {
 	return result;
 };
 
-module.exports = { getRandomUsername, getRandomFriends, getRandomThought };
+module.exports = { getRandomUsername, getRandomFriend, getRandomThought };

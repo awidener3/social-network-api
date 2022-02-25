@@ -3,7 +3,7 @@ GET http://localhost:3001/api/users
 
 ###
 # GET one user by ID
-GET http://localhost:3001/api/users/621826b5646ea1e5f781e798
+GET http://localhost:3001/api/users/6218eec7440a3d249281b44c
 
 ###
 # CREATE a user
@@ -11,8 +11,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "swidener",
-    "email": "swidener@ti.com"
+    "username": "awidener3",
+    "email": "awidener3@gmail.com"
 }
 
 ###
@@ -30,7 +30,7 @@ DELETE http://localhost:3001/api/users/621826b5646ea1e5f781e798
 
 ###
 # ADD a friend
-POST http://localhost:3001/api/users/621826c0646ea1e5f781e79a/friends/62182701646ea1e5f781e7a2
+POST http://localhost:3001/api/users/621937fef4eded4bdcc85839/friends/621937f5f4eded4bdcc85837
 
 ###
 # DELETE a friend

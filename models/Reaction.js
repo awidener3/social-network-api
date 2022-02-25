@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const formatDate = (date) => date.toLocaleString();
+
 const reactionSchema = new Schema({
 	reactionId: {
 		type: Schema.Types.ObjectId,
@@ -17,7 +19,7 @@ const reactionSchema = new Schema({
 	createdAt: {
 		type: Date,
 		default: Date.now,
-		get: (value) => value.toDateString(),
+		get: formatDate,
 	},
 });
 

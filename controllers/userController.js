@@ -3,8 +3,10 @@ const { User, Thought } = require('../models');
 module.exports = {
 	getUsers(req, res) {
 		User.find()
-			.select('-__v')
-			.then((users) => res.status(200).json(users))
+			.then((users) => {
+				console.log(users);
+				res.json(users);
+			})
 			.catch((err) => res.status(500).json({ message: err.message }));
 	},
 	getSingleUser(req, res) {
