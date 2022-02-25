@@ -12,7 +12,12 @@ Content-Type: application/json
 
 {
     "username": "awidener3",
-    "email": "awidener3@gmail.com"
+    "email": "awidener3@mail.com"
+}
+
+{
+    "username": "dschrute",
+    "email": "schrute@beets.com"
 }
 
 ###

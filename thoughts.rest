@@ -35,8 +35,8 @@ POST http://localhost:3001/api/thoughts/6218db60a3993a253258ecbe/reactions
 Content-Type: application/json
 
 {
-  "reactionBody": "Nice thought, Steve!",
-  "username": "awidener3"
+  "reactionBody": "What are you doing?!",
+  "username": "dschrute"
 }
 
 ###
