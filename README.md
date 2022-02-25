@@ -26,7 +26,7 @@ To start the server, run `npm start` and the server will begin listening for req
 
 ## 🔍 Preview
 
-
+https://user-images.githubusercontent.com/70721378/155809271-e2f2bff4-e34f-44d4-8f5f-baf7e73b7a97.mp4
 
 ## 📷 Screenshots
 The following screenshots follow the path of the preview video above, so you can take a closer look at the routes.
